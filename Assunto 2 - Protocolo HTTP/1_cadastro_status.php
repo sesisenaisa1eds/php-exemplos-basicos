@@ -31,14 +31,20 @@ if($_SERVER['REQUEST_METHOD']== 'POST') {
     // Tratativa dos erros por "Status Code"
 
     // Erro por parte do usuário (Faixa 400 - Não preencheu Nome ou Idade)
-    if($nome == '' || $idade = '') {
+    if($nome == '' || $idade == '') {
         http_response_code(400);
         echo "<h2>Status 400 - Faltou preenchar nome ou idade!</h2>";
 
     // Erro por parte do usuário (Faixa 400 - Usuário preencheu errado, por exemplo em vez de: "20" escreveu "vinte")
-    }elseif(!is_numeric($idade)) {
+    // }elseif(!is_numeric($idade)) {
+    //     http_response_code(400);
+    //     echo "<h2>Status 400 - Idade precisa ser um número!</h2>";
+
+    // Erro por parte do usuário (Faixa 400 - Usuário preencheu errado, por exemplo em vez de: "20" escreveu "vinte")
+    }elseif(!ctype_digit(strval($idade))) {
         http_response_code(400);
         echo "<h2>Status 400 - Idade precisa ser um número!</h2>";
+
 
     // Resposta para quando tudo foi bem (Cadastro feito com sucesso) 
     } else {
