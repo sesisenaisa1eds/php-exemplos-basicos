@@ -1,3 +1,2 @@
-Sabrina Carpenter;1000
-
-
+Sabrina;1000
+Ig;75
